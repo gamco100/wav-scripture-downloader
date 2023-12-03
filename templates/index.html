@@ -1,0 +1,41 @@
+{% include "header.html" %}
+
+  <form method="post" action="{{ url_for('clicked_on_download') }}">
+
+    {% if is_downloading == True %}
+        <p class="mt-5 mb-3" style="color: forestgreen !important;">
+        <b>Files downloaded:</b><br/>
+    {% for item in what_was_downloaded %}
+        {{ item }}<br/>
+    {% endfor %}
+        </p>
+    {% endif %}
+
+    <div class="form-floating">
+      <textarea name="query_to_download" class="form-control" id="floatingInput" rows="3" placeholder="Download Query"></textarea>
+      <label for="floatingInput">Download Query</label>
+    </div>
+
+    <div class="form-check text-start my-3"></div>
+    <button id="download_btn" class="btn btn-primary w-100 py-2" type="submit" data-loading-text="Loading...">Download</button>
+
+  </form>
+
+  {% include "footer.html" %}
+
+</main>
+
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Loading icon when button clicked -->
+<script>
+    $("#download_btn").click(function(){
+        jQuery("#download_btn").html('<div class="spinner-border text-light" role="status"><span class="sr-only"></span></div>');
+    })
+</script>
+
+</body>
+
+
+</html>

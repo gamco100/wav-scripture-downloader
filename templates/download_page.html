@@ -1,0 +1,52 @@
+{% include "header.html" %}
+
+    <div id="files_downloaded">
+        {% if has_downloaded == True %}
+            <p class="mt-5 mb-3">
+            <b>Files downloaded:</b><br/>
+        {% for item in what_was_downloaded %}
+            <a href="../static/output/{{ item }}" download>✓ {{ item }}</a><br/>
+        {% endfor %}
+            </p>
+        {% endif %}
+    </div>
+
+    {% include "footer.html" %}
+
+</main>
+
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- Add JavaScript to trigger file downloads automatically -->
+<script>
+    // Function to trigger file download
+    function downloadFile(filename) {
+        var link = document.createElement('a');
+        link.href = '../static/output/' + filename;
+        console.log(link.href)
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    // Convert the JSON string to a JavaScript array
+    var filesToDownload = JSON.parse('{{ what_was_downloaded | default('[]') | tojson | safe }}');
+    /*console.log(filesToDownload)*/
+
+    // Ensure filesToDownload is an array before triggering downloads
+    if (Array.isArray(filesToDownload)) {
+        // Trigger downloads for each file in the array
+        filesToDownload.forEach(function (file) {
+            downloadFile(file);
+        });
+    }
+    /*else {
+        console.log("This was not triggered!")
+    }*/
+</script>
+
+</body>
+
+
+</html>
