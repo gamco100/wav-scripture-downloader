@@ -24,15 +24,15 @@ def download_query(lines):
         # Getting the json from the API
         try:
             params = {
-            "booknum": BIBLE_BOOKS_NUMBER[f"{texto.bible_book}"],
-            "output": "json",
-            "pub": "nwt",
-            "fileformat": "MP3",
-            "alllangs": 0,
-            "track": texto.chapter,
-            "langwritten": "T",
-            "txtCMSLang": "T",
-        }
+                "booknum": BIBLE_BOOKS_NUMBER[f"{texto.bible_book}"],
+                "output": "json",
+                "pub": "nwt",
+                "fileformat": "MP3",
+                "alllangs": 0,
+                "track": texto.chapter,
+                "langwritten": "T",
+                "txtCMSLang": "T",
+            }
 
         except KeyError:
             continue

@@ -39,4 +39,3 @@ def clicked_on_download():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
