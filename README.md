@@ -11,7 +11,7 @@ It uses the modele **PyDub** for audio manipulation. **PyDub**, in turn, uses th
 (ps: this only downloads audios from nwt-T)
 - Use the following scripture address structure:
 - [bible book] [chapter as a integer]:[verse blocks] (notice the space between the bible book and the chapter)
-  - The verses should be divided using "," (comma) or "-" (hifen). If the verses are consecutive and bigger than 2 verses, preferably use ""; if it's bigger than 2, use "-". You can divide multiple verse blocks using ",". 
+  - The verses should be divided using "," (comma) or "-" (hifen). If the verse block if formed by consecutive verses and only 2 verses in length, preferably use ","; if it's bigger than 2, use "-". You can divide multiple verse blocks using ",". 
   - Example:
     - ✗ Mateus capítulo seis versículo 9 e 8 e depois dos versículos 25-33. 
     - ✓ Mateus 6:9,8,25-33
