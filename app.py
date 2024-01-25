@@ -36,6 +36,6 @@ def clicked_on_download():
     return render_template("download_page.html", has_downloaded=True,
                            what_was_downloaded=files_downloaded, year=datetime.datetime.now().year)
 
-#
-# if __name__ == "__main__":
-#     app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
